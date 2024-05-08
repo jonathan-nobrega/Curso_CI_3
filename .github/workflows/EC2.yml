@@ -16,7 +16,6 @@ jobs:
     # Artifact name
         name: programa
     
-    
     - name: Deploy to Staging server
       uses: easingthemes/ssh-deploy@main
       env:
@@ -40,10 +39,6 @@ jobs:
           export DBNAME=${{ secrets.DBNAME }}
           export DBPORT=${{ secrets.DBPORT }}
           export PORT=8000
-          echo ${{ secrets.DBHOST }}
-          echo ${{ secrets.DBUSER }}
-          echo ${{ secrets.DBPASSWORD }}
-          ${{ secrets.DBPORT }}
           chmod +x main
           nohup ./main > nohup.out 2> nohup.err < /dev/null &
         
